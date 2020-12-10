@@ -6,11 +6,11 @@ public:
         if (nums.size() == 0)
             return 0;
         
-        len = 1;    // at least has one number;
-        curVal = nums[0];
+        len = 1;            // At least has one number
+        curVal = nums[0];   // Record first number
         for (int i = 1; i < nums.size(); i++)
         {
-            if (curVal < nums[i])
+            if (curVal < nums[i])   // swap when numbers are differernt
             {
                 curVal = nums[i]; // Update curVal 
                 
