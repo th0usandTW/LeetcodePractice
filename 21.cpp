@@ -11,13 +11,26 @@
 class Solution {
 public:
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
-        ListNode *cur = new ListNode(0);
+        //ListNode *cur = new ListNode(0);
+        ListNode *cur;
         ListNode *ans;
         
         if (l1 == NULL)
             return l2;
         if (l2 == NULL)
             return l1;
+        
+        // init the cur pointer
+        if (l1->val <= l2->val)
+        {
+            cur = l1;
+            l1 = l1->next;
+        }
+        else
+        {
+            cur = l2;
+            l2 = l2->next;
+        }
         
         ans = cur;
         while (l1 && l2)
@@ -40,6 +53,6 @@ public:
         else if (l2)
             cur->next = l2;
         
-        return ans->next;
+        return ans;
     }
 };
