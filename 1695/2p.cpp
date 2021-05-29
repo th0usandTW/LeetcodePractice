@@ -9,18 +9,15 @@ public:
         
         head = 0;
         for (i = 0; i < size; i++) {
-            for (j = i; j < size; j++) {
-                // Need to remove the the duplicated number
-                while (map.find(nums[j]) != map.end()) {
-                    sum -= nums[head];
-                    map.erase(nums[head]);
-                    head++;
-                }
-                map.insert(nums[j]);
-                sum += nums[j];
-                max_sum = max(max_sum, sum);
+            // Need to remove the the duplicated number
+            while (map.find(nums[i]) != map.end()) {
+                sum -= nums[head];
+                map.erase(nums[head]);
+                head++;
             }
-            i = j + 1;
+            map.insert(nums[i]);
+            sum += nums[i];
+            max_sum = max(max_sum, sum);
         }
         return max_sum;
     }
